@@ -34,14 +34,16 @@ def encrypt():
     text_length=len(text)
     image.putpixel((0,0),(text_length//255, text_length%255,0))
     random.seed(password)
+    x = random.sample(range(1,width+1), text_length)
+    y = random.sample(range(1, height+1), text_length)
+    coor = list(zip(x,y))
+
     for i in range(text_length):
-        x=random.randint(1,width)
-        y=random.randint(1,height)
-        RGB=image.getpixel((x,y))
+        RGB=image.getpixel(coor[i])
         rgb_mutable=list(RGB)
         rgb_mutable[z]=chr_ascii[text[p]]^chr_ascii[password[j]]
         rgb_tuple=tuple(rgb_mutable)
-        image.putpixel((x,y),rgb_tuple)
+        image.putpixel(coor[i],rgb_tuple)
         
         
         z=(z+1)%3
@@ -79,18 +81,28 @@ def decrypt():
     print(length)
     
     random.seed(password)
+    x = random.sample(range(1,width+1), length)
+    y = random.sample(range(1, height+1), length)
+    coor = list(zip(x,y))
 
     for i in range(length):
-        x1=random.randint(1,width)
-        y1=random.randint(1,height)
-        RGB2=image.getpixel((x1,y1))
+        RGB2=image.getpixel(coor[i])
         coded=RGB2[z1]
         
         message+=ascii_chr[coded^chr_ascii[password[j1]]]
         
         z1=(z1+1)%3
         j1=(j1+1)%len(password)
+        '''
+        RGB2=image.getpixel((x1,y1))
+        coded=RGB2[z1]
         
+        message+=ascii_chr[coded^chr_ascii[password[j1]]]
+            
+            
+        z1=(z1+1)%3
+        j1=(j1+1)%len(password)
+        '''
     print("\n\nEncrypted text was\n\n",message)   
 
 user = input("Type 'encrypt' if you want encryption \nType 'decrypt' if you want decryption\n" )
