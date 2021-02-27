@@ -52,7 +52,7 @@ def encrypt():
 
         
     image.show()
-    image1=image.save("encrypted.png")
+    image.save(img[:-4]+"_encrypt.png")
 
 
     print("\n\nData hiding in image is successful\n\n")
