@@ -19,7 +19,6 @@ def encrypt():
 
     height=image.height
     width=image.width
-    print(height,width)
 
 
     password=input("\n\nEnter security key\n\n")
@@ -68,7 +67,6 @@ def decrypt():
 
     height=image.height
     width=image.width
-    print(height,width)
 
     j1=0
     
@@ -76,9 +74,7 @@ def decrypt():
     password=input("\n\nEnter your key\n\n")
     message=''
     raw=list(image.getpixel((0,0)))
-    print(raw)
     length = raw[0]*255 + raw[1]
-    print(length)
     
     random.seed(password)
     x = random.sample(range(1,width+1), length)
