@@ -89,16 +89,7 @@ def decrypt():
         
         z1=(z1+1)%3
         j1=(j1+1)%len(password)
-        '''
-        RGB2=image.getpixel((x1,y1))
-        coded=RGB2[z1]
         
-        message+=ascii_chr[coded^chr_ascii[password[j1]]]
-            
-            
-        z1=(z1+1)%3
-        j1=(j1+1)%len(password)
-        '''
     print("\n\nEncrypted text was\n\n",message)   
 
 user = input("Type 'encrypt' if you want encryption \nType 'decrypt' if you want decryption\n" )
