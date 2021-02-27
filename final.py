@@ -35,8 +35,8 @@ def encrypt():
     image.putpixel((0,0),(text_length//255, text_length%255,0))
     random.seed(password)
     for i in range(text_length):
-        x=random.randint(1,width+1)
-        y=random.randint(1,height+1)
+        x=random.randint(1,width)
+        y=random.randint(1,height)
         RGB=image.getpixel((x,y))
         rgb_mutable=list(RGB)
         rgb_mutable[z]=chr_ascii[text[p]]^chr_ascii[password[j]]
@@ -81,8 +81,8 @@ def decrypt():
     random.seed(password)
 
     for i in range(length):
-        x1=random.randint(1,width+1)
-        y1=random.randint(1,height+1)
+        x1=random.randint(1,width)
+        y1=random.randint(1,height)
         RGB2=image.getpixel((x1,y1))
         coded=RGB2[z1]
         
