@@ -3,7 +3,7 @@ import os
 from PIL import Image   #PIL is the python image library which needs to be preinstalled before you can run this code
 import random
 
-chr_ascii={}        #dictionary conatining characters as keys and ascii values as values
+chr_ascii={}        #dictionary containing characters as keys and ascii values as values
 ascii_chr={}        #dictionary containing ascii values as keys and characters as values
 
 for i in range(0,256):
@@ -89,7 +89,16 @@ def decrypt():
         
         z1=(z1+1)%3
         j1=(j1+1)%len(password)
+        '''
+        RGB2=image.getpixel((x1,y1))
+        coded=RGB2[z1]
         
+        message+=ascii_chr[coded^chr_ascii[password[j1]]]
+            
+            
+        z1=(z1+1)%3
+        j1=(j1+1)%len(password)
+        '''
     print("\n\nEncrypted text was\n\n",message)   
 
 user = input("Type 'encrypt' if you want encryption \nType 'decrypt' if you want decryption\n" )
